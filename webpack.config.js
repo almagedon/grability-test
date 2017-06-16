@@ -70,7 +70,6 @@ const rules = [
         loader: 'svg-sprite-loader',
         options: {
           extract: true,
-          spriteFilename: 'icons-sprite.svg',
         },
       },
       'svgo-loader',
@@ -115,6 +114,14 @@ if (isProduction) {
         fallback: 'style-loader',
         use: 'css-loader!postcss-loader!sass-loader',
       }),
+    },
+    {
+      test: /\.css$/,
+      include: /flexboxgrid/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ],
     }
   );
 } else {
@@ -139,6 +146,14 @@ if (isProduction) {
         'css-loader',
         'postcss-loader',
         'sass-loader?sourceMap',
+      ],
+    },
+    {
+      test: /\.css$/,
+      include: /flexboxgrid/,
+      use: [
+        'style-loader',
+        'css-loader'
       ],
     }
   );
@@ -173,7 +188,7 @@ module.exports = {
     compress: isProduction,
     inline: !isProduction,
     hot: !isProduction,
-    host: '0.0.0.0',
+    host: 'localhost',
     disableHostCheck: true,
     stats: {
       assets: true,

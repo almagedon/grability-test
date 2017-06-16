@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+
 import Dashboard from 'views/Dashboard';
 import About from 'views/About';
 import NotFound from 'views/NotFound';
@@ -22,6 +26,7 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <div className='App'>
           <Menu />
           <div className='Page'>
@@ -32,6 +37,7 @@ export default class App extends Component {
             </Switch>
           </div>
         </div>
+        </MuiThemeProvider>
       </BrowserRouter>
     );
   }
