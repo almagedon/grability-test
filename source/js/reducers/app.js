@@ -1,42 +1,33 @@
 import { Map } from 'immutable';
 
 import {
-  TEST_ACTION,
-  TEST_ASYNC_ACTION_START,
-  TEST_ASYNC_ACTION_ERROR,
-  TEST_ASYNC_ACTION_SUCCESS,
+  GET_HEROS_START,
+  GET_HEROS_ERROR,
+  GET_HEROS_SUCCESS,
 } from 'actions/app';
 
 const initialState = Map({
   counter: 0,
   asyncLoading: false,
   asyncError: null,
-  asyncData: null,
+  asyncData: [],
 });
 
 const actionsMap = {
-  [TEST_ACTION]: (state) => {
-    const counter = state.get('counter') + 1;
-
-    return state.merge({
-      counter,
-    });
-  },
-
   // Async action
-  [TEST_ASYNC_ACTION_START]: (state) => {
+  [GET_HEROS_START]: (state) => {
     return state.merge({
       asyncLoading: true,
       asyncError: null,
     });
   },
-  [TEST_ASYNC_ACTION_ERROR]: (state, action) => {
+  [GET_HEROS_ERROR]: (state, action) => {
     return state.merge({
       asyncLoading: false,
       asyncError: action.data,
     });
   },
-  [TEST_ASYNC_ACTION_SUCCESS]: (state, action) => {
+  [GET_HEROS_SUCCESS]: (state, action) => {
     return state.merge({
       asyncLoading: false,
       asyncData: action.data,

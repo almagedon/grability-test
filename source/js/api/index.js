@@ -1,20 +1,23 @@
 import 'es6-promise';
+import axios from 'axios';
 
-function testAsync() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      const date = new Date();
-      let seconds = date.getSeconds();
-      let minutes = date.getMinutes();
+const BASE_URL ="https://gateway.marvel.com/v1/";
+function get(url, data = {}, params = {}) {
+  return axios
+    .get(BASE_URL + url,
+      {
+        data,
 
-      seconds = seconds < 10 ? `0${ seconds }` : seconds;
-      minutes = minutes < 10 ? `0${ minutes }` : minutes;
+        params: {
+          ...params,
+          apikey: "ee9bd84624c89fd2684c06a98c7573cf",
+          limit: 10
 
-      resolve(`Current time: ${ date.getHours() }:${ minutes }:${ seconds }`);
-    }, (Math.random() * 1000) + 1000); // 1-2 seconds delay
-  });
+        }
+      }
+    )
 }
 
 export default {
-  testAsync,
+  get,
 };

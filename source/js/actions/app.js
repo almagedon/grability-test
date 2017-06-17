@@ -1,48 +1,38 @@
 import api from 'api';
 
-export const TEST_ACTION = 'TEST_ACTION';
-
-export const TEST_ASYNC_ACTION_START = 'TEST_ASYNC_ACTION_START';
-export const TEST_ASYNC_ACTION_ERROR = 'TEST_ASYNC_ACTION_ERROR';
-export const TEST_ASYNC_ACTION_SUCCESS = 'TEST_ASYNC_ACTION_SUCCESS';
-
-// Test action
-
-export function testAction() {
-  return {
-    type: TEST_ACTION,
-  };
-}
+export const GET_HEROS_START = 'GET_HEROS_START';
+export const GET_HEROS_ERROR = 'GET_HEROS_ERROR';
+export const GET_HEROS_SUCCESS = 'GET_HEROS_SUCCESS';
 
 // Async action example
 
-function testAsyncStart() {
+function heroRequestStart() {
   return {
-    type: TEST_ASYNC_ACTION_START,
+    type: GET_HEROS_START,
   };
 }
 
-function testAsyncSuccess(data) {
+function heroRequestSuccess(data) {
   return {
-    type: TEST_ASYNC_ACTION_SUCCESS,
+    type: GET_HEROS_SUCCESS,
     data,
   };
 }
 
-function testAsyncError(error) {
+function heroRequestFail(error) {
   return {
-    type: TEST_ASYNC_ACTION_ERROR,
+    type: GET_HEROS_ERROR,
     error,
   };
 }
 
-export function testAsync() {
+export function getHeros() {
   return function (dispatch) {
-    dispatch(testAsyncStart());
+    dispatch(heroRequestStart());
 
-    api.testAsync()
-      .then(data => dispatch(testAsyncSuccess(data)))
-      .catch(error => dispatch(testAsyncError(error)));
+  api.get("public/characters")
+      .then(data => dispatch(heroRequestSuccess(data.data.data.results.map(item => item))))
+      .catch(error => dispatch(heroRequestFail(error)));
   };
 }
 

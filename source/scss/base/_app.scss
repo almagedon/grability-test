@@ -6,34 +6,9 @@ $grey-text: #aaa;
 $black: #000;
 $white: #fff;
 
-html {
-  font-size: 10px;
-
-  @include lg {
-    font-size: 12px;
-  }
-
-  @include xl {
-    font-size: 14px;
-  }
-}
-
 body {
   color: $black;
   font-family: $font-family-sans-serif;
-}
-
-.App {
-  font-size: 1.8rem;
-  padding: 2rem;
-
-  @include md {
-    padding: 3rem;
-  }
-
-  @include md {
-    padding: 4rem;
-  }
 }
 
 a {
@@ -141,14 +116,7 @@ button:hover {
   color: $black;
 }
 
-.Page {
-  max-width: 60rem;
-  margin: 0 auto;
 
-  @include lg {
-    margin: 0 0 0 20rem;
-  }
-}
 
 .Example {
   background: #F6F8FA;
@@ -178,3 +146,9 @@ hr {
   border-top: 1px solid $grey-border;
   margin: 2rem 0;
 }
+.flexCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
