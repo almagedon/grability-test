@@ -10,7 +10,7 @@ function get(url, data = {}, params = {}) {
 
         params: {
           ...params,
-          apikey: "ee9bd84624c89fd2684c06a98c7573cf",
+          apikey: "f3de5f6f41bf36f00993926267cb73c9",
           limit: 10
 
         }

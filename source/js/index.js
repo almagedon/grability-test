@@ -6,12 +6,15 @@ import thunk from 'redux-thunk';
 import 'babel-polyfill';
 import logger from 'dev/logger';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import rootReducer from 'reducers';
 
 import App from 'views/App';
 
 // Load SCSS
 import '../scss/app.scss';
+
+injectTapEventPlugin();
 
 const isProduction = process.env.NODE_ENV === 'production';
 
