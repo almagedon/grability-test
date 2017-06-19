@@ -11,8 +11,7 @@ function get(url, data = {}, params = {}) {
         params: {
           ...params,
           apikey: "f3de5f6f41bf36f00993926267cb73c9",
-          limit: 10
-
+          nameStartsWith:'Spider',
         }
       }
     )

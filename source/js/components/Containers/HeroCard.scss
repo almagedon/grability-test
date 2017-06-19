@@ -1,0 +1,62 @@
+@mixin flexCenterH() {
+  display: flex;
+  justify-content: center;
+}
+.HeroCard {
+  background-color: #fff;
+  margin: 15px;
+
+  .HeroContainer {
+    .HeroAvatar-container {
+      height: 200px;
+      width: 200px;
+      margin: -15px 0 0 -20px;
+
+      @media screen and (max-width:1024px) {
+        margin: -15px 0 0 0;
+        @include flexCenterH();
+      }
+      .HeroAvatar {
+        width: inherit !important;
+        height: inherit !important;
+      }
+    }
+    .HeroName {
+      margin: -0.59em 0 1em 0;
+      text-transform: uppercase;
+      font-size: 1.05em;
+      font-weight: 900;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #473d3c;
+
+      @media screen and (max-width:1024px) {
+        margin: 0.5em 0 0.2em 0;
+      }
+    }
+    .HeroName:hover {
+      color: red;
+    }
+    .HeroDescription {
+      padding: 0;
+
+      .HeroText {
+        max-height: 125px;
+        position: relative;
+        overflow: hidden;
+      }
+      .HeroMoreContiner {
+        padding: 0;
+
+        @media screen and (max-width:1024px) {
+          margin: 0.5em 0 0.2em 0;
+          @include flexCenterH();
+        }
+        .HeroMore {
+          background-color: red !important;
+        }
+      }
+    }
+  }
+}
