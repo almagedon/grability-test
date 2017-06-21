@@ -26,6 +26,7 @@ const initialState = Map({
   asyncLoading: false,
   asyncError: null,
   asyncData: [],
+  asyncDatresult: [],
   asyncSearchLoading: false,
   asyncSearchError: null,
   asyncSearchData: [],
@@ -55,6 +56,7 @@ const actionsMap = {
     return state.merge({
       asyncLoading: false,
       asyncData: action.data,
+      result: action.data,
     });
   },
   [GET_HEROS_SEARCH_START]: (state) => {
@@ -72,7 +74,8 @@ const actionsMap = {
   [GET_HEROS_SEARCH_SUCCESS]: (state, action) => {
     return state.merge({
       asyncSearchLoading: false,
-      asyncSearchData: action.data,
+      asyncData: action.data,
+      //asyncSearchData: action.data,
     });
   },
   [GET_COMIC_START]: (state) => {
@@ -94,14 +97,15 @@ const actionsMap = {
     });
   },
   [SAVE_FAVORITE]: (state, action) => {
-    localStorage.setItem("favorites", JSON.stringify([...state.get("favorites"), action.comic]))
+    localStorage.setItem("favorites", JSON.stringify(state.get("favorites").concat(action.comic)))
     return state.merge({
       favorites: [...state.get("favorites"), action.comic]
     })
   },
   [SLICE_FAVORITE]: (state, action) => {
     localStorage.setItem("favorites",
-     JSON.stringify(state.get("favorites").filter(item => item.get("id") !== action.comic.get("id"))))
+     JSON.stringify(state.get("favorites").filter(item => item[0].id !== action.comic.id)),
+     )
     return state.merge({
       favorites: [...state.get("favorites"), action.comic]
     })

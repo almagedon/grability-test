@@ -24,6 +24,7 @@ var stylesimg = {
 
 @connect(state => ({
     asyncSearch: state.app.get('asyncSearchData'),
+    asyncData: state.app.get('asyncData'),
 }), {getHerosSearch})
 export default class NavBar extends Component {
   constructor(props) {
@@ -44,7 +45,8 @@ export default class NavBar extends Component {
     return (
       <AppBar 
         style={styles} 
-        title={<Search
+        title={
+          <Search
         dataSource={autocomplete}
         onChange={getHerosSearch}
         onRequestSearch={() => console.log('onRequestSearch')}

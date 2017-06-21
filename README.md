@@ -1,9 +1,35 @@
-# Marvin ★★
+# Prueba Tecnica FrontEnd-Grability
 
-React and Redux, Webpack 2 boilerplate.
+## Descripcion.
 
-Marvin is internal project by [Work & Co](https://work.co).
-We love React and use it a lot. So Marvin is meant to be a starting point for our React projects.
-But as we love open source too, it is publicly available for anyone interested in using it.
+	La app a sido deasrrollado implementando las diversas tecnologias destacando:
 
-Name comes from a fictional character [Marvin](https://en.wikipedia.org/wiki/Marvin_(character)), android from the [The Hitchhiker's Guide to the Galaxy](https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy) book as a homage to it's author [Douglas Adams](https://en.wikipedia.org/wiki/Douglas_Adams).
+- [x] [WebPack2](https://webpack.js.org/)
+
+- [x] [React.js](https://facebook.github.io/react/)
+- [x] [Redux](http://es.redux.js.org/)
+- [x] [Redux-thunk](https://github.com/gaearon/redux-thunk)
+
+- [x] [Sass](https://sass-lang.com)
+- [x] [Yarn](https://yarnpkg.com/lang/en/)
+- [x] [Npm](https://www.npmjs.com/)
+
+- [x] [Git](https://github.com/)
+
+	Un especial agradecimiento a:
+
+[marvin](https://github.com/workco/marvin)
+>Asombroso boilerplate facil, ligero, increible.
+>una gran herramienta.
+
+[Erifranck Nuñez](https://www.linkedin.com/in/erifranck-nu%C3%B1ez-948a32b7/)
+>Maestro, asesor y amigo.
+
+## Instrucciones del aplicativo.
+
+	Es necesario tener instalado:
+- [nodeJs](https://nodejs.org/es/)
+- [Sass](https://sass-lang.com)
+- [yarn](https://yarnpkg.com/lang/en/)
+
+

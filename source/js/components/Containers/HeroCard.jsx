@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { saveFavorite } from 'actions/app';
 import { getComic } from 'actions/appModalData';
 
 import ListItem from 'material-ui/List/ListItem';
@@ -18,7 +17,7 @@ import './HeroCard.scss'
 @connect(state => ({
   asyncData: state.app.get('asyncData'),
   open: state.app.get('modal'),
-}), {saveFavorite, getComic})
+}), {getComic})
 export default class HeroCard extends Component {
   constructor(props) {
     super(props);
@@ -74,7 +73,7 @@ export default class HeroCard extends Component {
                   this.props.comics.slice(0, 4).map(( comic, index ) => (
                     <Col onClick={this.props.getComic.bind(this, comic.get("resourceURI"))} key={index} className="tittleComics" xs={6}>
                       <img src={linkArrow} className='linkArrow' />
-                      <span /* onClick={saveFavorite.bind(this, comic)} */>
+                      <span>
                       {comic.get("name")} 
                       </span>
                     </Col>

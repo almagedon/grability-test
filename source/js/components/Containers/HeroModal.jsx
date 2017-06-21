@@ -20,10 +20,15 @@ const customPadding = {
 };
 @connect(state => ({
   asyncComicData: state.app.get('asyncComicData'),
+  favorites: state.app.get('favorites'),
 }),{saveFavorite})
 export default class HeroModal extends React.Component {
   constructor(props) {
     super(props);
+    this.state={
+      addButton:'add to favourites'
+    }
+    console.log()
   } 
   static propTypes = {
     asyncComicData: PropTypes.object,
@@ -31,8 +36,7 @@ export default class HeroModal extends React.Component {
   }
 
   render() {
-    const {asyncComicData} = this.props;
-    const {saveFavorite} = this.props;
+    const {asyncComicData, favorites, saveFavorite} = this.props;
     const actions = (
       <Row>
         <Col xs={12}>
@@ -40,8 +44,9 @@ export default class HeroModal extends React.Component {
             <Col xs={6} className='modalButton'>
               <FlatButton
               icon={<img src={favouritesPrimary} />} 
-              label="add" 
+              label={this.state.addButton} 
               fullWidth={true} 
+              onClick={saveFavorite.bind(this, asyncComicData)}
               hoverColor={'#322827'}
               backgroundColor={'#f0f0f0'}
               style={{
@@ -61,7 +66,6 @@ export default class HeroModal extends React.Component {
               hoverColor={'#dcdcdc'}
               backgroundColor={'#dcdcdc'}
               disableTouchRipple={true}
-              onClick={saveFavorite.bind(this, asyncComicData)}
               style={{
                 height:'75px',
                 color:'red',

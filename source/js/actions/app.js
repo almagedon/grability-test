@@ -31,7 +31,6 @@ function heroRequestFail(error) {
 export function getHeros() {
   return function (dispatch) {
     dispatch(heroRequestStart());
-
   api.get("public/characters")
       .then(data => dispatch(heroRequestSuccess(data.data.data.results.map(item => item))))
       .catch(error => dispatch(heroRequestFail(error)));

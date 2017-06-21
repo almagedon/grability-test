@@ -9,6 +9,7 @@ import FlatButton from 'material-ui/FlatButton';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
 import HeroCard from 'components/Containers/HeroCard';
+import HeroFavorites from 'components/Containers/HeroFavorites';
 
 import NavSortCharacters from 'components/Containers/NavSortCharacters';
 import './styles.scss';
@@ -53,6 +54,9 @@ export default class Dashboard extends Component {
               ))
             }
               </Row>
+        </Col>
+        <Col className='Dashboard' style={{ backgroundColor: '#ebebeb'}} xs={3} md={3}>
+            <HeroFavorites />
         </Col>
       </Row>
     );
