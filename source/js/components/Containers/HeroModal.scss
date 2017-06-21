@@ -1,0 +1,19 @@
+.tittleModal{
+  font-weight: 900;
+  padding: 0;
+  color: #473d3c;
+  font-size: larger;
+  text-transform: uppercase;
+}
+.descriptionModal{
+  padding:0;
+  overflow: hidden;
+}
+.modalButton{
+  background-color: #dcdcdc;
+  .modalButtonContent{
+  background-color: #dcdcdc;
+  height: 75px;
+  text-transform: uppercase;
+  }
+}
