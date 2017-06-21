@@ -1,0 +1,15 @@
+@mixin flexCenterH() {
+  display: flex;
+  justify-content: center;
+}
+.HeroMoreContiner {
+  padding: 0;
+
+  @media screen and (max-width:1024px) {
+    margin: 0.5em 0 0.2em 0;
+    @include flexCenterH();
+  }
+  .HeroMore {
+    background-color: red !important;
+  }
+}

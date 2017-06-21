@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getHeros } from 'actions/app';
-import NavSortCharacters from 'components/Containers/NavSortCharacters';
-import HeroCard from 'components/Containers/HeroCard';
+
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import ListItem from 'material-ui/List/ListItem';
+import FlatButton from 'material-ui/FlatButton';
 import MenuItem from 'material-ui/MenuItem';
 import Avatar from 'material-ui/Avatar';
-import FlatButton from 'material-ui/FlatButton';
+import HeroCard from 'components/Containers/HeroCard';
+
+import NavSortCharacters from 'components/Containers/NavSortCharacters';
 import './styles.scss';
 
 
 @connect(state => ({
   asyncData: state.app.get('asyncData'),
+  favorites: state.app.get('favorites'),
 }), {getHeros})
 export default class Dashboard extends Component {
   constructor(props) {
@@ -32,7 +35,7 @@ export default class Dashboard extends Component {
     this.setState({value});
   };
   render() {
-    const {asyncData} = this.props;
+    const {asyncData, favorites} = this.props;
     return (
       <Row >
         <Col className='Dashboard' xs={9} md={9}>
@@ -50,7 +53,7 @@ export default class Dashboard extends Component {
               ))
             }
               </Row>
-      </Col>
+        </Col>
       </Row>
     );
   }

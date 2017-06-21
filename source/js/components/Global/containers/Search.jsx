@@ -8,7 +8,6 @@ const Search = (props) => (
     <Col xs={5}>
       <SearchBar 
         {...props}
-        onChange={() => console.log('onChange')}
         onRequestSearch={() => console.log('onRequestSearch')}
         hintText='Search character...'
         style={{

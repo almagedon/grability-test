@@ -3,6 +3,8 @@ import api from 'api';
 export const GET_HEROS_START = 'GET_HEROS_START';
 export const GET_HEROS_ERROR = 'GET_HEROS_ERROR';
 export const GET_HEROS_SUCCESS = 'GET_HEROS_SUCCESS';
+export const SAVE_FAVORITE = 'SAVE_FAVORITE';
+export const SLICE_FAVORITE = 'SLICE_FAVORITE';
 
 // Async action example
 
@@ -35,5 +37,17 @@ export function getHeros() {
       .catch(error => dispatch(heroRequestFail(error)));
   };
 }
+export function saveFavorite(comic) {
+  return {
+    type: SAVE_FAVORITE,
+    comic
+  }
 
-// Update
+}
+export function sliceFavorite(comic) {
+  return {
+    type: SLICE_FAVORITE,
+    comic
+  }
+  
+}

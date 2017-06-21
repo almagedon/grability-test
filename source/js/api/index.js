@@ -7,11 +7,22 @@ function get(url, data = {}, params = {}) {
     .get(BASE_URL + url,
       {
         data,
-
         params: {
           ...params,
           apikey: "f3de5f6f41bf36f00993926267cb73c9",
-          nameStartsWith:'Spider',
+          limit:10,
+        }
+      }
+    )
+}
+function getComic(url, data = {}, params = {}) {
+  return axios
+    .get(url,
+      {
+        data,
+        params: {
+          ...params,
+          apikey: "f3de5f6f41bf36f00993926267cb73c9",
         }
       }
     )
@@ -19,4 +30,5 @@ function get(url, data = {}, params = {}) {
 
 export default {
   get,
+  getComic,
 };
