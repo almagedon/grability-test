@@ -33,7 +33,7 @@
 - [yarn](https://yarnpkg.com/lang/en/)
 - [git](https://github.com/)
 
-### Pasos para su instlacion:
+### Pasos para su instalacion:
  
  - Pocicionarnos en una carpe de nuestra elccion para este ejemplo Documentos.
  - Clonar el repositorio [aqui](https://github.com/almagedon/grability-test)

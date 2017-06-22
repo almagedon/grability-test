@@ -12,41 +12,41 @@ import deleteTrash from '../../../assets/img/btn-delete.png';
 
 @connect(state => ({
   favorites: state.app.get('favorites'),
-}),{sliceFavorite})
+}), { sliceFavorite })
 export default class HeroFavorites extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-    }
-  } 
+    this.state = {
+    };
+  }
   static propTypes = {
     sliceFavorite: PropTypes.func,
   }
 
 
   render() {
-    const {favorites, sliceFavorite} = this.props;
+    const { favorites, sliceFavorite } = this.props;
     return (
       <Row >
-        <Col xs={12}  >
+        <Col xs={ 12 } >
           <Row middle='xs'>
-            <img src={Shield} style={{ marginRight: '15px'}} />
-            <strong style={{fontSize: '1.5em'}} >My favourites</strong>
+            <img src={ Shield } style={ { marginRight: '15px' } } />
+            <strong style={ { fontSize: '1.5em' } } >My favourites</strong>
           </Row>
         </Col>
         {
-          favorites.map(( favorite, index ) => (
-        <Col xs={12} key={index}>
-          <Row end='xs'>
-            <img src={deleteTrash} onClick={sliceFavorite.bind(this, favorite)} style={{ marginRight: '15px'}} />
-          </Row>
-          <Row center='xs'>
-            <img 
-                    src={favorite[0] ? favorite[0].thumbnail.path+'.'+favorite[0].thumbnail.extension : favorite.get(0).thumbnail.path+'.'+favorite.get(0).thumbnail.extension} 
-                    style={{height:'300px'}}
-                    />
-          </Row>
-        </Col>
+          favorites.map((favorite, index) => (
+            <Col xs={ 12 } key={ index }>
+              <Row end='xs'>
+                <img src={ deleteTrash } onClick={ sliceFavorite.bind(this, favorite) } style={ { marginRight: '15px' } } />
+              </Row>
+              <Row center='xs'>
+                <img
+                  src={ favorite[0] ? `${ favorite[0].thumbnail.path }.${ favorite[0].thumbnail.extension }` : `${favorite.get && favorite.get(0).get('thumbnail').get('path') }.${favorite.get && favorite.get(0).get('thumbnail').get('extension') }` }
+                  style={ { height: '300px' } }
+                />
+              </Row>
+            </Col>
           ))
         }
       </Row>

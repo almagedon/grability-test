@@ -19,7 +19,7 @@ import {
   GET_COMIC_ERROR,
   GET_COMIC_SUCCESS,
   SHOW_MODAL,
-  HIDE_MODAL
+  HIDE_MODAL,
 } from 'actions/appModalData';
 
 const initialState = Map({
@@ -30,11 +30,11 @@ const initialState = Map({
   asyncSearchLoading: false,
   asyncSearchError: null,
   asyncSearchData: [],
-  asyncComicLoading:false,
-  asyncComicError:null,
-  asyncComicData:[],
+  asyncComicLoading: false,
+  asyncComicError: null,
+  asyncComicData: [],
   modal: false,
-  favorites: JSON.parse(localStorage.getItem("favorites")) || []
+  favorites: JSON.parse(localStorage.getItem('favorites')) || [],
 });
 
 const actionsMap = {
@@ -75,7 +75,7 @@ const actionsMap = {
     return state.merge({
       asyncSearchLoading: false,
       asyncData: action.data,
-      //asyncSearchData: action.data,
+      // asyncSearchData: action.data,
     });
   },
   [GET_COMIC_START]: (state) => {
@@ -97,29 +97,33 @@ const actionsMap = {
     });
   },
   [SAVE_FAVORITE]: (state, action) => {
-    localStorage.setItem("favorites", JSON.stringify(state.get("favorites").concat(action.comic)))
+    localStorage.setItem('favorites', JSON.stringify(state.get('favorites').concat(action.comic)));
     return state.merge({
-      favorites: [...state.get("favorites"), action.comic]
-    })
+      favorites: [...state.get('favorites'), action.comic],
+    });
   },
   [SLICE_FAVORITE]: (state, action) => {
-    localStorage.setItem("favorites",
-     JSON.stringify(state.get("favorites").filter(item => item[0].id !== action.comic.id)),
-     )
+    localStorage.setItem('favorites',
+      JSON.stringify(state.get('favorites').filter(item => {
+        if (item[0]) {return item[0].id !== action.comic.id}
+        else {return item.get(0).get('id') !== action.get('comic').get('id');}
+      }
+      ))
+     );
     return state.merge({
-      favorites: [...state.get("favorites"), action.comic]
-    })
+      favorites: [...state.get('favorites'), action.comic],
+    });
   },
   [SHOW_MODAL]: (state, action) => {
     return state.merge({
-      modal: true
-    })
+      modal: true,
+    });
   },
   [HIDE_MODAL]: (state, action) => {
     return state.merge({
-      modal: false
-    })
-  }
+      modal: false,
+    });
+  },
 };
 
 export default function reducer(state = initialState, action = {}) {
